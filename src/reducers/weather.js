@@ -1,7 +1,8 @@
-import { getSingleDayForecast, getFewDaysForecast, getBatchForecast } from '../actions'
+import { getBatchForecast, getLocationInfo } from '../actions'
 import { forecastListFormatter, singleDayForecastFormatter } from '../utils/helpers'
 
 const initialState = {
+  id: '',
   placeName: '',
   singleDay: null,
   fewDays: [],
@@ -10,25 +11,18 @@ const initialState = {
 
 export default function (state = initialState, { type, payload }) {
   switch (type) {
-    case getSingleDayForecast.TRIGGER:
-    case getFewDaysForecast.TRIGGER:
     case getBatchForecast.TRIGGER:
       return {
         ...state,
         placeName: payload ? payload.name : '',
+        id: payload ? payload.id : '',
         isFetch: true
       }
-    case getSingleDayForecast.SUCCESS:
+    case getLocationInfo.SUCCESS:
       return {
         ...state,
-        singleDay: singleDayForecastFormatter(payload),
-        isFetch: false
-      }
-    case getFewDaysForecast.SUCCESS:
-      return {
-        ...state,
-        fewDays: payload.few.map(forecastListFormatter),
-        isFetch: false
+        id: payload.Key,
+        placeName: payload.EnglishName,
       }
     case getBatchForecast.SUCCESS:
       return {
@@ -37,8 +31,6 @@ export default function (state = initialState, { type, payload }) {
         singleDay: singleDayForecastFormatter(payload.single),
         isFetch: false
       }
-    case getSingleDayForecast.FAILURE:
-    case getFewDaysForecast.FAILURE:
     case getBatchForecast.FAILURE:
       return {
         ...state,

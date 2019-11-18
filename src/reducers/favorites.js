@@ -12,7 +12,6 @@ export default function (state = initialState, { type, payload }) {
         if (el.id === payload.id) isExist = true
         return !isExist
       }) || []
-
       return {
         ...state,
         places: isExist ? places : state.places.concat(payload)

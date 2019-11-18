@@ -2,7 +2,15 @@ import { makeStyles } from '@material-ui/core'
 
 export default makeStyles(theme => ({
   card: {
+    margin: '0 20px 20px 0',
     width: '220px',
+  },
+  header: {
+    '& div': {
+      maxWidth: '100%',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden'
+    }
   },
   media: {
     height: 0,

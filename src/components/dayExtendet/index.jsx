@@ -10,14 +10,14 @@ import daysName from 'src/constants/days'
 import { imgURL } from 'src/config'
 import useStyles from './styles'
 
-const DayExtendet = ({ day, placeName, isFavorite }) => {
+const DayExtendet = ({ day, name: placeName, id, isFavorite }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
   const handleClick = () => {
     dispatch(addToFavorites({
+      id,
       placeName,
-      id: day.id,
       temperature: day.temperature,
       temperatureUnit: day.temperatureUnit
     }))
@@ -26,6 +26,7 @@ const DayExtendet = ({ day, placeName, isFavorite }) => {
   return day ? (
     <Card className={classes.card}>
       <CardHeader
+        className={classes.header}
         action={
           <IconButton
             className={classnames({ [classes.favorite]: isFavorite })}

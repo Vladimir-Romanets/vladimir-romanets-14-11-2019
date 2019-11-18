@@ -21,8 +21,8 @@ const Content = ({ getUserGeolocation, isFetch }) => {
       <Header />
       <Container>
         <Switch>
-          <Route path={ROUTES.home} component={Weather} />
-          <Route path={ROUTES.favorites} component={Favorites} />
+          <Route exact path={`${ROUTES.home}/:id?`} component={Weather} />
+          <Route exact path={ROUTES.favorites} component={Favorites} />
           <Redirect to={ROUTES.home} />
         </Switch>
       </Container>

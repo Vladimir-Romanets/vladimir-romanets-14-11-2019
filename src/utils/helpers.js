@@ -10,7 +10,6 @@ export const forecastListFormatter = day => ({
 })
 
 export const singleDayForecastFormatter = day => ({
-  id: day.id,
   date: day.LocalObservationDateTime,
   temperature: day.Temperature.Imperial.Value,
   temperatureUnit: day.Temperature.Imperial.Unit,

@@ -14,7 +14,7 @@ function* sagaHandle({ payload }) {
       call(getFewDaysForecast, payload.id)
     ])
     yield put(action.success({
-      single: { ...singleDay.data[0], id: payload.id },
+      single: singleDay.data[0],
       few: fewDays.data.DailyForecasts
     }))
   } catch (e) {
