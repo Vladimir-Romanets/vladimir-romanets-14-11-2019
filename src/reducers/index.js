@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
 import { connectRouter } from 'connected-react-router'
 
-import favortes from "./favorites";
+import favorites from "./favorites";
 import weather from "./weather";
+import location from "./location";
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
-  favortes,
-  weather
+  favorites,
+  weather,
+  location
 });
 
 export default createRootReducer

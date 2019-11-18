@@ -1,11 +1,17 @@
 import { all } from 'redux-saga/effects'
 
-function* test() {
-  yield console.log('test')
-}
+import getUserGeolocation from './getUserGeolocation'
+import getLocationInfo from './getLocationInfo'
+import getSingleDayForecast from './getSingleDayForecast'
+import getFewDaysForecast from './getFewDaysForecast'
+import getBatchForecast from './getBatchForecast'
 
 export default function* rootSaga() {
   yield all([
-    test(),
+    getUserGeolocation(),
+    getLocationInfo(),
+    getSingleDayForecast(),
+    getFewDaysForecast(),
+    getBatchForecast()
   ])
 }
