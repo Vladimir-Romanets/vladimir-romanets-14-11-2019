@@ -1,11 +1,11 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { createRoutine } from 'redux-saga-routines';
+import { createRoutine } from 'redux-saga-routines'
 
-import * as types from 'src/constants/actionTypes'
+import { GET_LOCATION_INFO } from 'src/constants/actionTypes'
 import request, { isProd } from 'src/utils/request'
 import mockData from './mockData'
 
-export const action = createRoutine(types.GET_LOCATION_INFO)
+export const action = createRoutine(GET_LOCATION_INFO)
 
 function getLocationInfo({ lat, lon }) {
   const payload = `${lat},${lon}`

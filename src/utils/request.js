@@ -9,7 +9,7 @@ const request = axios.create({
   }
 })
 
-export const isProd = process.env.NODE_ENV === 'production'
+export const isProd = true
 
 export default function ({ method = 'get', url = '', payload }) {
   return request[method](url, {

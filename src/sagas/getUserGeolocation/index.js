@@ -1,16 +1,16 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { createRoutine } from 'redux-saga-routines';
+import { createRoutine } from 'redux-saga-routines'
 
 import { getLocationInfo } from 'src/actions'
 import { defaultCoordinates } from 'src/config'
-import * as types from 'src/constants/actionTypes'
+import { GET_USER_GEOLOCATION } from 'src/constants/actionTypes'
 
-export const action = createRoutine(types.GET_USER_GEOLOCATION)
+export const action = createRoutine(GET_USER_GEOLOCATION)
 
 function getUserGeolocation() {
   return new Promise((resolve, reject) => {
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
+      navigator.geolocation.getCurrentPosition(resolve, reject)
     } else {
       reject('Your browser doesn\'t support geolocation.')
     }

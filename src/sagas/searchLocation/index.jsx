@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { createRoutine, promisifyRoutine } from 'redux-saga-routines';
+import { createRoutine, promisifyRoutine } from 'redux-saga-routines'
 
 import { SEARCH_LOCATION } from 'src/constants/actionTypes'
 import request, { isProd } from 'src/utils/request'
