@@ -23,4 +23,4 @@ export default makeStyles(() => ({
   active: {
     borderColor: '#f00'
   }
-}));
+}))

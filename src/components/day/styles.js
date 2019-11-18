@@ -28,6 +28,6 @@ const useStyles = makeStyles({
       height: 'auto'
     }
   },
-});
+})
 
 export default useStyles

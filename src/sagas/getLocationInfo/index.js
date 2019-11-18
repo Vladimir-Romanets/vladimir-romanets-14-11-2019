@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { createRoutine } from 'redux-saga-routines';
+import { createRoutine } from 'redux-saga-routines'
 
 import * as types from 'src/constants/actionTypes'
 import request, { isProd } from 'src/utils/request'

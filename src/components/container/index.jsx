@@ -4,7 +4,7 @@ import { Container as PageContainer } from '@material-ui/core'
 import useStyles from './styles'
 
 const Container = ({ children }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <PageContainer maxWidth='xl' className={classes.root}>
