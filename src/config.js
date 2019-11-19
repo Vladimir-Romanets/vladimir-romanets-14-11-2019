@@ -1,7 +1,7 @@
 export const baseURL = 'http://dataservice.accuweather.com'
-export const APIKey = 'n1bn3eXz8SfaYmHCPW2kIpJB3oBXlxpJ'
+export const APIKey = 'IgXYhCjkRjyRg3Jxdc1iyE6tuhLKhUXu'
 export const imgURL = id => `https://www.accuweather.com/images/weathericons/${id}.svg`
 export const defaultCoordinates = {
-  lat: 32.109333,
-  lon: 34.855499
+  lat: 32.087025,
+  lon: 34.787631
 }

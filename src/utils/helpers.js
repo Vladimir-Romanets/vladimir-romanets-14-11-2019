@@ -16,3 +16,9 @@ export const singleDayForecastFormatter = day => ({
   weatherIcon: day.WeatherIcon,
   weatherText: day.WeatherText,
 })
+
+export const temperatureConvert = ({ isFaringate, temperature }) => {
+  if (isNaN(temperature)) return temperature
+  if (isFaringate) return `${temperature}°F`
+  return `${Math.round((temperature - 32) / 1.8)}°C`
+}

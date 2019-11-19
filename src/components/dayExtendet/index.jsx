@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useDispatch } from 'react-redux'
 import classnames from 'classnames'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import { Card, CardMedia, CardHeader, CardContent, IconButton } from '@material-ui/core'
 
+import { DegreesContext } from 'src/pages'
 import { addToFavorites } from 'src/actions'
 import monthNames from 'src/constants/month'
 import daysName from 'src/constants/days'
 import { imgURL } from 'src/config'
+import { temperatureConvert } from 'src/utils/helpers'
 import useStyles from './styles'
 
 const DayExtendet = ({ day, name: placeName, id, isFavorite }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
+  const { isFaringate } = useContext(DegreesContext)
 
   const handleClick = () => {
     dispatch(addToFavorites({
@@ -37,7 +40,7 @@ const DayExtendet = ({ day, name: placeName, id, isFavorite }) => {
           </IconButton>
         }
         title={placeName}
-        subheader={`${day.temperature}${day.temperatureUnit}`}
+        subheader={temperatureConvert({ isFaringate, temperature: day.temperature })}
       />
       <CardMedia
         className={classes.media}

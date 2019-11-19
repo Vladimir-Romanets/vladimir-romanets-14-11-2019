@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -10,7 +10,11 @@ import Loader from '../components/loader'
 import Container from '../components/container'
 import Header from '../components/header'
 
+export const DegreesContext = React.createContext();
+
 const Content = ({ getUserGeolocation, isFetch }) => {
+  const [isFaringate, toggleDegreeUnit] = useState(true)
+
   useEffect(() => {
     getUserGeolocation()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -18,14 +22,16 @@ const Content = ({ getUserGeolocation, isFetch }) => {
 
   return isFetch ? <Loader /> : (
     <>
-      <Header />
-      <Container>
-        <Switch>
-          <Route exact path={`${ROUTES.home}/:id?`} component={Weather} />
-          <Route exact path={ROUTES.favorites} component={Favorites} />
-          <Redirect to={ROUTES.home} />
-        </Switch>
-      </Container>
+      <DegreesContext.Provider value={{ isFaringate, toggleDegreeUnit }}>
+        <Header />
+        <Container>
+          <Switch>
+            <Route exact path={`${ROUTES.home}/:id?`} component={Weather} />
+            <Route exact path={ROUTES.favorites} component={Favorites} />
+            <Redirect to={ROUTES.home} />
+          </Switch>
+        </Container>
+      </DegreesContext.Provider>
     </>
   )
 }

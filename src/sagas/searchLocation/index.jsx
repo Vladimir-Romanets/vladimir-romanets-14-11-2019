@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from 'redux-saga/effects'
+import { call, put, debounce } from 'redux-saga/effects'
 import { createRoutine, promisifyRoutine } from 'redux-saga-routines'
 
 import { SEARCH_LOCATION } from 'src/constants/actionTypes'
@@ -26,5 +26,5 @@ function* sagaHandle({ payload }) {
 }
 
 export default function* saga() {
-  yield takeLatest(action.TRIGGER, sagaHandle)
+  yield debounce(700, action.TRIGGER, sagaHandle)
 }

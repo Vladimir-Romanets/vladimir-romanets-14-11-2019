@@ -1,12 +1,15 @@
-import React, { memo } from 'react'
+import React, { useContext, memo } from 'react'
 import Grid from '@material-ui/core/Grid'
 
 import { imgURL } from 'src/config'
 import monthNames from 'src/constants/month'
+import { DegreesContext } from 'src/pages'
+import { temperatureConvert } from 'src/utils/helpers'
 import useStyles from './styles'
 
 const Day = (props) => {
   const classes = useStyles()
+  const { isFaringate } = useContext(DegreesContext)
 
   return (
     <Grid item xs='auto'>
@@ -30,8 +33,8 @@ const Day = (props) => {
           <img src={imgURL(props.nightIcon)} alt={props.nightText} title={props.nightText} />
         </div>
         <div className='row flex'>
-          <small>{`min: ${props.min}${props.tempUnit}`}</small>
-          <small>{`max: ${props.max}${props.tempUnit}`}</small>
+          <small>{`min: ${temperatureConvert({ isFaringate, temperature: props.min })}`}</small>
+          <small>{`max: ${temperatureConvert({ isFaringate, temperature: props.max })}`}</small>
         </div>
       </div>
     </Grid>

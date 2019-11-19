@@ -1,14 +1,22 @@
 import { makeStyles } from '@material-ui/core/styles'
 
+const basicFlex = {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+}
+
 export default makeStyles(() => ({
   root: {
+    ...basicFlex,
     padding: '0 20px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignContent: 'center',
+    justifyContent: 'space-between',
     position: 'static',
     fontSize: '16px'
+  },
+  navbar: {
+    ...basicFlex,
+    justifyContent: 'flex-end',
   },
   link: {
     padding: '5px 20px',

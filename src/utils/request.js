@@ -9,7 +9,7 @@ const request = axios.create({
   }
 })
 
-export const isProd = true
+export const isProd = window.location.hostname !== 'localhost'
 
 export default function ({ method = 'get', url = '', payload }) {
   return request[method](url, {
